@@ -1,0 +1,40 @@
+<div class="derslerMainContainer">
+    <div class="derslerAltContainer">
+        <div class="derslerInputsContainer">
+            <div class="dersAdiCon">
+                <input type="text"  placeholder="Konu Adı" class="dersAdiInput" #txtKonuAdi data-aos="fade-left" data-aos-duration="1000">
+            </div>
+        </div>
+        <div class="derslerBilgiContainer">
+            <div class="toggleAytTyt">
+                <div class="toggleTyt toggleDeneme">
+                    <h5 data-aos="fade-right" data-aos-duration="1000">TYT</h5>
+                </div>
+                    <div class="container" data-aos="flip-up" data-aos-duration="1000">
+                        <input type="checkbox" id="cup" (click)="isAytOrTyt()" class="toggleCheckbox">
+                        <label for="cup"></label>
+                    </div>
+                <div class="toggleAyt toggleDeneme">
+                    <h5 data-aos="fade-left" data-aos-duration="1000">AYT</h5>
+                </div>
+            </div>
+            <div class="derslerContainer">
+                <div class="dersContainer" *ngIf="tytKonuShow">
+                    <div class="checkBoxContainer" *ngFor="let checkbox of tytDersler" data-aos="fade-right" data-aos-duration="1000" (click)="findDersId(checkbox.id)" >
+                        <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}">
+                        <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.dersAdi}}</label>
+                    </div>
+                </div>
+                <div class="dersContainer" *ngIf="!tytKonuShow">
+                    <div class="checkBoxContainer" *ngFor="let checkbox of aytDersler" data-aos="fade-right" data-aos-duration="1000" (click)="findDersId(checkbox.id)" >
+                        <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}">
+                        <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.dersAdi}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dersEkleContainer">
+        <button class="dersEkleButton" (click)="konuEkle(txtKonuAdi.value)" data-aos="fade-left" data-aos-duration="1000">Konu Ekle</button>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="dersListContainer">
+    <div class="toggleAytTyt2">
+        <div class="toggleTyt2 toggleDeneme2">
+            <h5 data-aos="fade-right" data-aos-duration="1000">TYT</h5>
+        </div>
+            <div class="container2" data-aos="flip-up" data-aos-duration="1000">
+                <input type="checkbox" id="cup2" (click)="isAytOrTyt2()" class="toggleCheckbox2">
+                <label for="cup2"></label>
+            </div>
+        <div class="toggleAyt2 toggleDeneme2">
+            <h5 data-aos="fade-left" data-aos-duration="1000">AYT</h5>
+        </div>
+    </div>
+    <div class="searchContainer" data-aos="fade-up" data-aos-duration="1000">
+        <input type="search" class="search" #txtKonuAdi (input)="changeSearchInput(txtKonuAdi.value)" placeholder="Arama Yap">
+    </div>
+    <div class="konuAdminContainer" *ngIf="isAytOrTytToggle2==false">
+        <div class="konuContainer" *ngFor="let tytDers of tytDersler | paginate:{
+            itemsPerPage:tableSize2,
+            currentPage:page2,
+            totalItems:count2
+        };let i=index" data-aos="fade-up" data-aos-duration="1000">
+            <div class="dersAdiContainer">
+                <h4>{{tytDers.dersAdi}}</h4>
+            </div>
+            <div class="konuIslemler">
+                <div appDelete3 [id]="tytDers.id"  dersAdi={{tytDers.dersAdi}} (callback)="getTytDersler()" controller="ders" class="deleteButton" data-aos="fade-left" data-aos-duration="1200"></div>
+                <div class="detayButtonContainer">
+                    <a class="detayButton" [routerLink]="['/admin/dersler',tytDers.id]">Detayları Gör</a>
+                </div>
+            </div>
+        </div>
+        <div class="notFoundContainer" *ngIf="tytDersler.length==0">
+            <h4 class="notFoundText">Aradığınız filtrelemeye göre bir sonuç bulunamamıştır.</h4>
+        </div>
+        <div class="paginationContainer" *ngIf="tytDersler.length>0">
+            <div class="paginationDiv">
+                <pagination-controls 
+                    previousLabel="Önceki"
+                    nextLabel="Sonraki"
+                    (pageChange)="onTableDataChange($event)" class="paginationControl"> 
+                </pagination-controls>
+            </div>
+            <div class="paginationSelect">
+                <select (change)="onTableSizeChange($event)">
+                    <option *ngFor="let size of tableSizes2">
+                        {{size}}
+                    </option>
+                </select>
+            </div>
+        </div>    
+    </div>
+    <div class="konuAdminContainer" *ngIf="isAytOrTytToggle2==true">
+        <div class="konuContainer" *ngFor="let aytDers of aytDersler | paginate:{
+            itemsPerPage:tableSize3,
+            currentPage:page3,
+            totalItems:count3
+        };let i=index" data-aos="fade-up" data-aos-duration="1000">
+            <div class="dersAdiContainer">
+                <h4>{{aytDers.dersAdi}}</h4>
+            </div>
+            <div class="konuIslemler">
+                <div appDelete3 [id]="aytDers.id" dersAdi={{aytDers.dersAdi}} (callback)="getAytDersler()" controller="ders" class="deleteButton" data-aos="fade-left" data-aos-duration="1200"></div>
+                <div class="detayButtonContainer">
+                    <a class="detayButton" [routerLink]="['/dersler',aytDers.id]">Detayları Gör</a>
+                </div>
+            </div>
+        </div>
+        <div class="notFoundContainer" *ngIf="aytDersler.length==0">
+            <h4 class="notFoundText">Aradığınız filtrelemeye göre bir sonuç bulunamamıştır.</h4>
+        </div>
+        <div class="paginationContainer" *ngIf="aytDersler.length>0">
+            <div class="paginationDiv">
+                <pagination-controls 
+                    previousLabel="Önceki"
+                    nextLabel="Sonraki"
+                    (pageChange)="onTableDataChange2($event)" class="paginationControl"> 
+                </pagination-controls>
+            </div>
+            <div class="paginationSelect">
+                <select (change)="onTableSizeChange2($event)">
+                    <option *ngFor="let size of tableSizes3">
+                        {{size}}
+                    </option>
+                </select>
+            </div>
+        </div>    
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="analizContainer">
+    <ngx-charts-bar-vertical
+    (window:resize)="onResize($event)"
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="tytYanlisBoslar"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="false"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [showGridLines]="false">
+    </ngx-charts-bar-vertical>
+    <div class="filtreContainer">
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+            <div class="selectTitleContainer">
+              <h5 class="selectTitle">Konu Türü</h5>
+            </div>
+            <select (change)="onKonuTurChange($event)">
+                <option *ngFor="let konuTur of konuTurs">
+                    {{konuTur}}
+                </option>
+            </select>
+          </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+          <div class="selectTitleContainer">
+            <h5 class="selectTitle">Deneme Sayısı</h5>
+          </div>
+          <select (change)="onTableSizeChange($event)">
+              <option *ngFor="let size of tableSizes">
+                  {{size}}
+              </option>
+          </select>
+        </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+            <div class="selectTitleContainer">
+              <h5 class="selectTitle">Konu Sayısı</h5>
+            </div>
+            <select (change)="onKonuSizeChange($event)">
+                <option *ngFor="let size of konuSizes">
+                    {{size}}
+                </option>
+            </select>
+        </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+          <div class="selectTitleContainer">
+            <h5 class="selectTitle">Ders</h5>
+          </div>
+          <select (change)="onDersChange($event)">
+              <option *ngFor="let ders of dersler" [value]="ders.id">
+                  {{ders.dersAdi}}
+              </option>
+          </select>
+        </div>
+      </div>
+</div>

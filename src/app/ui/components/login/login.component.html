@@ -1,0 +1,44 @@
+<div class="loginMainContainer">
+    <div class="loginContainer">
+        <div class="loginTextContainer">
+            <h3 data-aos="flip-up" data-aos-duration="1000">Giriş Yap</h3>
+        </div>
+        <div class="loginInputContainer">
+            <div class="emailContainer">
+                <input type="text" #txtEmail class="loginInput" placeholder="Email veya kullanıcı adı" data-aos="flip-up" data-aos-duration="1000">
+            </div>
+            <div class="passwordContainer">
+                <div class="passwordSpan">
+                    <input type="password" class="loginInput" id="passwordInput" data-aos="flip-up" data-aos-duration="1000" placeholder="Şifre" #txtPassword>
+                    <i class="fa-solid fa-eye gozIcon" (click)="gozAcKapa()" *ngIf="!sifreGor" data-aos="flip-up" data-aos-duration="1000"></i>
+                    <i class="fa-solid fa-eye-slash gozIcon" (click)="gozAcKapa()" *ngIf="sifreGor" data-aos="flip-up" data-aos-duration="1000"></i>
+                </div>
+            </div>
+        </div>
+        <div class="altBilgilerContainer">
+            <div class="altBilgiContainer">
+                <div class="forgotPasswordContainer">
+                    <a routerLink="/sifremi-unuttum" class="sifremiUnuttum"  data-aos="flip-up" data-aos-duration="1000">Şifremi Unuttum</a>
+                </div>
+                <div class="loginButtonContainer" data-aos="flip-up" data-aos-duration="1000">
+                    <button class="loginButton" (click)="girisYap(txtEmail.value,txtPassword.value)">Giriş Yap</button>
+                </div>
+                <div class="signUpContainer">
+                    <a routerLink="/uye-ol" class="signUp"  data-aos="flip-up" data-aos-duration="1000">Hesabınız yok mu?</a>
+                </div>
+            </div>
+            <div class="loginOtherContainer">
+                <asl-google-signin-button class="googleLogin"
+                    type="standard"
+                    shape="pill"
+                    text="signin_with"
+                    theme="outline"
+                    size="large"
+                ></asl-google-signin-button>
+                <!-- <div class="googleLoginContainer" data-aos="flip-up" data-aos-duration="1000">
+                    <button class="loginGoogleButton">Google ile devam et <i class="fa-brands fa-google googleIcon"></i></button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

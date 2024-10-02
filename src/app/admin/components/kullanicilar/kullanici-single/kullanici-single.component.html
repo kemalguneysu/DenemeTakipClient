@@ -1,0 +1,27 @@
+<div class="singleUserContainer">
+    <div class="userInfoContainer">
+        <div class="idContainer infoContainer">
+            <h4 class="id info">{{user.id}}</h4>
+        </div>
+        <div class="userNameContainer infoContainer">
+            <h4 class="userName info">{{user.userName}}</h4>
+        </div>
+        <div class="mailContainer infoContainer">
+            <h4 class="mail info">{{user.email}}</h4>
+        </div>
+    </div>
+    <div class="assingRoleContainer">
+        <div class="rollerContainer">
+            <div class="dersContainer">
+                <div class="checkBoxContainer" *ngFor="let role of allRoles" data-aos="fade-right" data-aos-duration="1000" >
+                    <input type="checkbox" class="konuCheckBox" id="{{role.id}}" [checked]="isInRole(role.name)" (change)="roleCheck(role.name)"> 
+                    <label for="{{role.id}}" class="konuCheckBoxTitle">{{role.name}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="ekleButtonContainer" data-aos="fade-left" data-aos-duration="1000">
+            <button class="ekleButton"  (click)="editRole()">Güncelle</button>
+        </div>
+    </div>
+    
+</div>

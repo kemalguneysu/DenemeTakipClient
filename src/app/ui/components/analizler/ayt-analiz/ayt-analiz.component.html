@@ -1,0 +1,202 @@
+<div class="analizContainer" *ngIf="aytDenemeler.length>0">
+    <ngx-charts-line-chart 
+      (window:resize)="onResize($event)"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="aytDenemeNetler"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [xAxisTickFormatting]="dateTickFormatting"
+      [showGridLines]="showGridLines"
+      >
+
+      <!--Sayisal Netler ve Dersler-->
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sayısal Netler' && dersAdi==='Matematik'" >
+        <pre>Matematik Doğru: {{ model.extra.matematikDogru | json }}</pre>
+        <pre>Matematik Yanlış: {{ model.extra.matematikYanlis| json }}</pre>
+        <pre>Matematik Net: {{ model.extra.matematikNet| json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sayısal Netler' && dersAdi==='Fizik'">
+        <pre>Fizik Doğru: {{ model.extra.fizikDogru | json }}</pre>
+        <pre>Fizik Yanlış: {{ model.extra.fizikYanlis| json }}</pre>
+        <pre>Fizik Net: {{ model.extra.fizikNet| json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sayısal Netler' && dersAdi==='Kimya'">
+        <pre>Kimya Doğru: {{ model.extra.kimyaDogru | json }}</pre>
+        <pre>Kimya Yanlış: {{ model.extra.kimyaYanlis| json }}</pre>
+        <pre>Kimya Net: {{ model.extra.kimyaNet| json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sayısal Netler' && dersAdi==='Biyoloji'">
+        <pre>Biyoloji Doğru: {{ model.extra.biyolojiDogru | json }}</pre>
+        <pre>Biyoloji Yanlış: {{ model.extra.biyolojiYanlis| json }}</pre>
+        <pre>Biyoloji Net: {{ model.extra.biyolojiNet| json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sayısal Netler' && dersAdi==='Genel'">
+        <pre>Matematik Net: {{ model.extra.matematikNet | json }}</pre>
+        <pre>Fizik Net: {{ model.extra.fizikNet | json }}</pre>
+        <pre>Kimya Net: {{ model.extra.kimyaNet | json }}</pre>
+        <pre>Biyoloji Net: {{ model.extra.biyolojiNet | json }}</pre>
+        <pre>Toplam Net: {{ model.extra.sayisalNet | json }}</pre>
+      </ng-template> 
+
+
+      
+
+      <!--Eşit Ağırlık Netler ve Dersler-->
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Eşit Ağırlık Netler'&& dersAdi==='Edebiyat'">
+        <pre>Edebiyat Doğru: {{ model.extra.edebiyatDogru | json }}</pre>
+        <pre>Edebiyat Yanlış: {{ model.extra.edebiyatYanlis | json }}</pre>
+        <pre>Edebiyat Net: {{ model.extra.edebiyatNet | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Eşit Ağırlık Netler'&& dersAdi==='Matematik'">
+        <pre>Matematik Doğru: {{ model.extra.matematikDogru | json }}</pre>
+        <pre>Matematik Yanlış: {{ model.extra.matematikYanlis | json }}</pre>
+        <pre>Matematik Net: {{ model.extra.matematikNet | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Eşit Ağırlık Netler'&& dersAdi==='Tarih-1'">
+        <pre>Tarih-1 Doğru: {{ model.extra.tarih1Dogru | json }}</pre>
+        <pre>Tarih-1 Yanlış: {{ model.extra.tarih1Yanlis | json }}</pre>
+        <pre>Tarih-1 Net: {{ model.extra.tarih1Net | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Eşit Ağırlık Netler'&& dersAdi==='Coğrafya-1'">
+        <pre>Coğrafya-1 Doğru: {{ model.extra.cografya1Dogru | json }}</pre>
+        <pre>Coğrafya-1 Yanlış: {{ model.extra.cografya1Yanlis | json }}</pre>
+        <pre>Coğrafya-1 Net: {{ model.extra.cografya1Net | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Eşit Ağırlık Netler'">
+        <pre>Edebiyat Net: {{ model.extra.edebiyatNet | json }}</pre>
+        <pre>Matematik Net: {{ model.extra.matematikNet | json }}</pre>
+        <pre>Tarih-1 Net: {{ model.extra.tarih1Net | json }}</pre>
+        <pre>Coğrafya-1 Net: {{ model.extra.cografya1Net | json }}</pre>
+        <pre>Toplam Net: {{ model.extra.toplamNet | json }}</pre>
+      </ng-template> 
+  
+    <!--Sözel Alan ve Dersler-->
+    <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sözel Netler'&& dersAdi==='Edebiyat'">
+            <pre>Edebiyat Doğru: {{ model.extra.edebiyatDogru | json }}</pre>
+            <pre>Edebiyat Yanlış: {{ model.extra.edebiyatYanlis | json }}</pre>
+            <pre>Edebiyat Net: {{ model.extra.edebiyatNet | json }}</pre>
+    </ng-template> 
+    
+    <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sözel Netler'&& dersAdi==='Tarih-1'">
+        <pre>Tarih-1 Doğru: {{ model.extra.tarih1Dogru | json }}</pre>
+        <pre>Tarih-1 Yanlış: {{ model.extra.tarih1Yanlis | json }}</pre>
+        <pre>Tarih-1 Net: {{ model.extra.tarih1Net | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sözel Netler'&& dersAdi==='Coğrafya-1'">
+        <pre>Coğrafya-1 Doğru: {{ model.extra.cografya1Dogru | json }}</pre>
+        <pre>Coğrafya-1 Yanlış: {{ model.extra.cografya1Yanlis | json }}</pre>
+        <pre>Coğrafya-1 Net: {{ model.extra.cografya1Net | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sözel Netler'&& dersAdi==='Tarih-2'">
+        <pre>Tarih-2 Doğru: {{ model.extra.tarih2Dogru | json }}</pre>
+        <pre>Tarih-2 Yanlış: {{ model.extra.tarih2Yanlis | json }}</pre>
+        <pre>Tarih-2 Net: {{ model.extra.tarih2Net | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sözel Netler'&& dersAdi==='Coğrafya-2'">
+        <pre>Coğrafya-2 Doğru: {{ model.extra.cografya2Dogru | json }}</pre>
+        <pre>Coğrafya-2 Yanlış: {{ model.extra.cografya2Yanlis | json }}</pre>
+        <pre>Coğrafya-2 Net: {{ model.extra.cografya2Net | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sözel Netler'&& dersAdi==='Felsefe'">
+        <pre>Felsefe Doğru: {{ model.extra.felsefeDogru | json }}</pre>
+        <pre>Felsefe Yanlış: {{ model.extra.felsefeYanlis | json }}</pre>
+        <pre>Felsefe Net: {{ model.extra.felsefeNet | json }}</pre>
+      </ng-template> 
+      
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sözel Netler'&& dersAdi==='Din'">
+        <pre>Din Doğru: {{ model.extra.dinDogru | json }}</pre>
+        <pre>Din Yanlış: {{ model.extra.dinYanlis | json }}</pre>
+        <pre>Din Net: {{ model.extra.dinNet | json }}</pre>
+      </ng-template> 
+
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Sözel Netler'">
+        <pre>Edebiyat Net: {{ model.extra.edebiyatNet | json }}</pre>
+        <pre>Tarih-1 Net: {{ model.extra.tarih1Net | json }}</pre>
+        <pre>Coğrafya-1 Net: {{ model.extra.cografya1Net | json }}</pre>
+        <pre>Tarih-1 Net: {{ model.extra.tarih2Net | json }}</pre>
+        <pre>Coğrafya-1 Net: {{ model.extra.cografya2Net | json }}</pre>
+        <pre>Felsefe Net: {{ model.extra.felsefeNet | json }}</pre>
+        <pre>Din Net: {{ model.extra.dinNet | json }}</pre>
+        <pre>Toplam Net: {{ model.extra.toplamNet | json }}</pre>
+      </ng-template> 
+
+      <!--Dil Alan ve Ders-->
+      <ng-template #tooltipTemplate let-model="model" *ngIf="alanAdi=== 'Dil Netler'">
+        <pre>Dil Doğru: {{ model.extra.dilDogru | json }}</pre>
+        <pre>Dil Yanlış: {{ model.extra.dilYanlis | json }}</pre>
+        <pre>Toplam Net: {{ model.extra.toplamNet | json }}</pre>
+      </ng-template> 
+  
+    </ngx-charts-line-chart>
+    <div class="filtreContainer" >
+      <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+        <div class="selectTitleContainer">
+          <h5 class="selectTitle">Deneme Sayısı</h5>
+        </div>
+        <select (change)="onTableSizeChange($event)">
+            <option *ngFor="let size of tableSizes">
+                {{size}}
+            </option>
+        </select>
+      </div>
+      <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+        <div class="selectTitleContainer">
+          <h5 class="selectTitle">Alanlar</h5>
+        </div>
+        <select (change)="onAlanChange($event)">
+            <option *ngFor="let ders of alanlar">
+                {{ders}}
+            </option>
+        </select>
+      </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000" *ngIf="alanAdi=='Sayısal Netler'">
+            <div class="selectTitleContainer">
+            <h5 class="selectTitle">Dersler</h5>
+            </div>
+            <select (change)="onDersChange($event)">
+                <option *ngFor="let ders of aytDerslerSayisal">
+                    {{ders}}
+                </option>
+            </select>
+        </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000" *ngIf="alanAdi=='Eşit Ağırlık Netler'">
+            <div class="selectTitleContainer">
+            <h5 class="selectTitle">Dersler</h5>
+            </div>
+            <select (change)="onDersChange($event)">
+                <option *ngFor="let ders of aytDerslerEsitAgirlik">
+                    {{ders}}
+                </option>
+            </select>
+        </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000" *ngIf="alanAdi=='Sözel Netler'">
+            <div class="selectTitleContainer">
+            <h5 class="selectTitle">Dersler</h5>
+            </div>
+            <select (change)="onDersChange($event)">
+                <option *ngFor="let ders of aytDerslerSozel">
+                    {{ders}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+<h4 class="notFoundText" *ngIf="aytDenemeler.length==0">Ayt denemeniz bulunmamaktadır.</h4>

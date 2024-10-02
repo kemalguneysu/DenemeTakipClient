@@ -1,0 +1,270 @@
+.denemeEkleContainer{
+    margin-top: 7rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: var(--secondary-color);
+}
+.toggleAytTyt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3,1fr);
+}
+.toggleDeneme{
+    display: grid;
+
+}
+.toggleDeneme h5{
+    font-size: 3rem;
+    color: var(--text-color);
+    font-family: "Catamaran", sans-serif;
+    padding: 0 1rem;
+}
+.denemeEkle{
+    display: grid;
+    grid-template-rows: 1fr;
+}
+.tytEkleContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.tytNetlerContainer{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+}
+.aytNetlerContainer{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 1fr;
+}
+.dersNetContainer{
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    grid-template-columns: 1fr;
+}
+.dersNetCon{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.dersTitle h3{
+    color: var(--text-color);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: "Catamaran", sans-serif;
+}
+.dersDogruCon{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: 2rem;
+}
+.dersYanlisCon{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: 2rem;   
+
+}
+.tytYanlisKonularContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: max-content;
+}
+.tytYanlisBaslikContainer{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+.tytYanlisBaslikContainer h4{
+    color: var(--text-color);
+    font-family: "Catamaran", sans-serif;
+    font-size: 2rem;
+}
+.fa-angle-down, .fa-angle-up{
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0 1.5rem;
+}
+.tytYanlisKonuEkleContainer{
+    display: grid;
+    height: fit-content;
+
+}
+.derslerYanlisContainer{
+    display: grid;
+    margin-top: 1rem;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 1fr;
+    height: fit-content;
+}
+.dersYanlisContainer{
+    height: fit-content;
+}
+.dersYanlisTitleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dersYanlisTitleContainer h3{
+    color: var(--text-color);
+    font-family: "Catamaran", sans-serif;
+    font-size: 2rem;
+
+}
+.dersYanlisCheckBoxes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.checkBoxContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.konuCheckBox {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: .1rem solid var(--third-color);
+    margin: 0 2rem;
+    justify-self: left;
+    cursor: pointer;
+}
+.konuCheckBox:checked{
+   accent-color: var(--third-color);
+}
+.konuCheckBoxTitle{
+    color: var(--text-color);
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 1rem;
+    justify-self: left;
+}
+
+.denemeListContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: var(--secondary-color);
+    padding: 3rem;
+}
+.tytListContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.dogruYanlisInput{
+    width: 8rem;
+    height: 3rem;
+    border-radius: 1rem;
+    border: .2rem solid var(--third-color);
+    padding: 1rem;
+    text-align: center;
+    font-family: "Source Sans 3", sans-serif;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    font-size: 1.6rem;
+
+}
+::placeholder{
+    color: var(--text-color);
+    font-size: 1.6rem;
+    font-weight: 300;
+
+}
+.ekleButtonContainer{
+    display: grid;
+    justify-content: end;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+}
+.ekleButton{
+    width: 15rem;
+    height: 3rem;
+    font-size: 1.8rem;
+    border-radius: 1rem;
+    border: .2rem solid var(--third-color);
+    color: var(--text-color);
+    font-family: "Source Sans 3", sans-serif;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+}
+.ekleButton:hover{
+    background-color: var(--text-color);
+    border: .1rem solid var(--third-color);
+    color: var(--background-color);
+}
+.container {
+	position: relative;
+	height: 6.4rem;
+	width: 6.4rem;
+	border-radius: .1rem;
+}
+a {
+	position: relative;
+	display: block;
+	font-family: "Poppins", sans-serif;
+	background-color: #3f2b25;
+	color: #fab142;
+	padding: .3rem;
+	font-size: 4.4rem;
+	text-align: center;
+	text-decoration: none;
+	border-radius: .1rem;
+	margin-top: 0.3rem;
+}
+.toggleCheckbox{
+	appearance: none;
+	-webkit-appearance: none;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	height: 2rem;
+	width: 4rem;
+	background-color: var(--text-color);
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: 0.5s;
+}
+label[for="cup"] {
+	position: absolute;
+	background-color: var(--background-color);
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: .6rem;
+	height: 2rem;
+	width: 2rem;
+	border: .1rem solid #e7e7e7;
+	border-radius: 50%;
+	box-shadow: inset -6px 6px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: 0.5s;
+    
+}
+label[for="cup"]:before {
+	content: "";
+	position: absolute;
+	height: .1rem;
+	width: .3rem;
+	background-image: linear-gradient(to left, #bebebe 30%, #cccccc 30%);
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: -.38rem;
+    
+}
+input[type="checkbox"]:checked {
+	background-color: var(--background-color);
+    
+}
+input[type="checkbox"]:checked  + label[for="cup"] {
+	transform: translateX(2rem) rotate(180deg);
+	background-color: var(--text-color);
+	box-shadow: inset .06rem -.06rem rgba(0, 0, 0, 0.2);
+    
+}

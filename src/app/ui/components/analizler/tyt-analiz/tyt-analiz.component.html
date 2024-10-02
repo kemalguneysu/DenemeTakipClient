@@ -1,0 +1,73 @@
+<div class="analizContainer" *ngIf="tytDenemeler.length>0">
+  <ngx-charts-line-chart
+    (window:resize)="onResize($event)"
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="tytDenemeNetler"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [xAxisTickFormatting]="dateTickFormatting"
+    [showGridLines]="showGridLines"
+    >
+    <ng-template #tooltipTemplate let-model="model" *ngIf="dersAdi=== 'Genel Netler'">
+      <pre>Türkçe Net {{ model.extra.turkceNet | json }}</pre>
+      <pre>Matematik Net: {{ model.extra.matematikNet | json }}</pre>
+      <pre>Fen Net: {{ model.extra.fenNet | json }}</pre>
+      <pre>Sosyal Net: {{ model.extra.sosyalNet | json }}</pre>
+      <pre>Toplam Net: {{ model.extra.toplamNet | json }}</pre>
+    </ng-template>
+
+    <ng-template #tooltipTemplate let-model="model" *ngIf="dersAdi=== 'Türkçe'">
+      <pre>Türkçe Doğru: {{ model.extra.turkceDogru | json }}</pre>
+      <pre>Türkçe Yanlış: {{ model.extra.turkceYanlis | json }}</pre>
+      <pre>Türkçe Net: {{ model.extra.turkceNet | json }}</pre>
+    </ng-template>
+
+    <ng-template #tooltipTemplate let-model="model" *ngIf="dersAdi=== 'Matematik'">
+      <pre>Matematik Doğru: {{ model.extra.matematikDogru | json }}</pre>
+      <pre>Matematik Yanlış: {{ model.extra.matematikYanlis | json }}</pre>
+      <pre>Matematik Net: {{ model.extra.matematikNet | json }}</pre>
+    </ng-template>
+
+    <ng-template #tooltipTemplate let-model="model" *ngIf="dersAdi=== 'Fen'">
+      <pre>Fen Doğru: {{ model.extra.fenDogru | json }}</pre>
+      <pre>Fen Yanlış: {{ model.extra.fenYanlis | json }}</pre>
+      <pre>Fen Net: {{ model.extra.fenNet | json }}</pre>
+    </ng-template>
+
+    <ng-template #tooltipTemplate let-model="model" *ngIf="dersAdi=== 'Sosyal'">
+      <pre>Sosyal Doğru: {{ model.extra.sosyalDogru | json }}</pre>
+      <pre>Sosyal Yanlış: {{ model.extra.sosyalYanlis | json }}</pre>
+      <pre>Sosyal Net: {{ model.extra.sosyalNet | json }}</pre>
+    </ng-template>
+
+  </ngx-charts-line-chart>
+  <div class="filtreContainer">
+    <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+      <div class="selectTitleContainer">
+        <h5 class="selectTitle">Deneme Sayısı</h5>
+      </div>
+      <select (change)="onTableSizeChange($event)">
+          <option *ngFor="let size of tableSizes">
+              {{size}}
+          </option>
+      </select>
+    </div>
+    <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+      <div class="selectTitleContainer">
+        <h5 class="selectTitle">Ders</h5>
+      </div>
+      <select (change)="onDersChange($event)">
+          <option *ngFor="let ders of dersler">
+              {{ders}}
+          </option>
+      </select>
+    </div>
+  </div>
+</div>
+<h4 class="notFoundText" *ngIf="tytDenemeler.length==0">Tyt denemeniz bulunmamaktadır.</h4>

@@ -1,0 +1,85 @@
+/deep/ .ng-tns-c3851436134-1 text{
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 2rem;
+    fill: var(--text-color);
+}
+/deep/ .ng-tns-c3851436134-1 span{
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 2rem;
+    fill: var(--text-color);
+    color: var(--text-color);
+}
+
+/deep/ .ng-star-inserted{
+    fill: var(--text-color);
+    font-size: 2rem;
+    font-family: "Source Sans 3", sans-serif;
+
+}
+/deep/ span{
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 2rem;
+    fill: var(--text-color);
+    color: var(--text-color);
+}
+/deep/ text{
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 2rem;
+    fill: var(--text-color);
+    color: var(--text-color);
+}
+.analizContainer{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    width: fit-content;
+}
+.paginationSelect{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    max-height: fit-content;
+    height: fit-content;
+    padding: 1rem 3rem;
+}
+.selectTitleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selectTitle{
+    font-family: "Catamaran", sans-serif;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+.paginationSelect select{
+    background-color: var(--background-color);
+    border: .1rem solid var(--third-color);
+    color: var(--text-color);
+    grid-column-start: 1;
+    font-size: 2rem;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    border-radius: 0.6rem;
+}
+.paginationSelect select option{
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 1.6rem;
+    background-color: var(--secondary-color);
+    border: .1rem solid var(--third-color);
+}
+
+pre{
+    font-family: "Source Sans 3", sans-serif;
+    color: var(--text-color);
+    font-weight: 300;
+    padding: 0.8rem 0rem;
+}
+@media screen and (max-width: 970px) {
+    .analizContainer{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,26 @@
+<div class="derslerMainContainer">
+    <div class="derslerAltContainer">
+        <div class="derslerInputsContainer">
+            <div class="dersAdiCon">
+                <input type="text"  placeholder="Ders Adı" class="dersAdiInput" #txtDersAdi>
+            </div>
+        </div>
+        <div class="derslerBilgiContainer">
+            <div class="toggleAytTyt">
+                <div class="toggleTyt toggleDeneme">
+                    <h5>TYT</h5>
+                </div>
+                    <div class="container" >
+                        <input type="checkbox" id="cup" (click)="isAytOrTyt()" class="toggleCheckbox">
+                        <label for="cup"></label>
+                    </div>
+                <div class="toggleAyt toggleDeneme">
+                    <h5>AYT</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dersEkleContainer">
+        <button class="dersEkleButton" (click)="dersEkle(txtDersAdi.value)">Ders Ekle</button>
+    </div>
+</div>

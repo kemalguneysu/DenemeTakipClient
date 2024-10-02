@@ -1,0 +1,20 @@
+<div class="dersContainer">
+    <div class="dersAdiCon">
+        <input type="text" #txtDersAdi [value]="dersAdi" class="dersAdiInput">
+    </div>
+    <div class="dersTytOrAytContainer">
+        <div class="checkBoxes">
+            <div class="checkBoxContainer" data-aos="fade-right" data-aos-duration="1000" (click)="checkDersTip($event)">
+                <input type="checkbox" class="konuCheckBox" [checked]="isTyt==true" id="tyt">
+                <label for="tyt" class="konuCheckBoxTitle">Tyt</label>
+            </div>
+            <div class="checkBoxContainer" data-aos="fade-right" data-aos-duration="1000" (click)="checkDersTip($event)">
+                <input type="checkbox" class="konuCheckBox" [checked]="isTyt==false" id="ayt">
+                <label for="ayt" class="konuCheckBoxTitle">Ayt</label>
+            </div>
+        </div>
+    </div>
+    <div class="ekleButtonContainer" data-aos="fade-left" data-aos-duration="1000">
+        <button class="ekleButton"  (click)="editDers(txtDersAdi.value)">Güncelle</button>
+    </div>
+</div>

@@ -1,0 +1,265 @@
+.loginMainContainer{
+    margin-top: 10rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-height: calc(100vh-10rem);
+    height: fit-content;
+    margin-bottom: 5rem;
+
+}
+.loginContainer{
+    display: grid;
+    grid-column-start: 2;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 2rem;
+}
+.loginTextContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginTextContainer h3{
+    display: flex;
+    color: var(--text-color);
+    font-size: 3rem;
+    font-family: "Catamaran", sans-serif;
+    padding: 1rem 0;
+}
+.loginInputContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.emailContainer{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin: 1rem;
+}
+.passwordContainer{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin: 1rem;
+}
+.loginInput{
+    width: 100%;
+    height: 100%;
+    border-radius: .6rem;
+    font-family: "Catamaran", sans-serif;
+    grid-column-start: 2;
+    border: none;
+    height: 4rem;
+    background-color: var(--background-color);
+    padding: 1rem;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+.loginInput::placeholder{
+    display: flex;
+    font-size: 2rem;
+    font-family: "Catamaran", sans-serif;
+    font-weight: 200;
+    color: var(--text-color);
+}
+.passwordSpan{
+    height: 4rem;
+    width: 100%;
+    position: relative;
+    grid-column-start: 2;
+}
+.gozIcon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+}
+i{
+    font-size: 2rem;
+    color: var(--text-color);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.altBilgilerContainer{
+    display: grid;
+    width: 100%;
+    grid-template-rows:1fr 1fr; 
+    height: fit-content;
+    max-height: fit-content;
+}
+
+.altBilgiContainer{
+    display: grid;
+    grid-template-rows:1fr 2fr 1fr; 
+    height: fit-content;
+    max-height:fit-content;
+}
+.forgotPasswordContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+}
+.sifremiUnuttum{
+    font-size: 1.8rem;
+    font-family: "Catamaran", sans-serif;
+    font-weight: 200;
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: center;
+    grid-column-start: 2;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.sifremiUnuttum:hover{
+    text-decoration: underline;
+    text-decoration-color:var(--text-color);
+}
+.loginButtonContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin-top: 1.2rem;
+    height: fit-content;
+    max-height: fit-content;
+}
+.loginButton{
+    grid-column-start: 2;
+    background-color: var(--line-color);
+    color: var(--text-color);
+    border: none;
+    font-size: 2.2rem;
+    font-family: "Catamaran", sans-serif;
+    border-radius: 0.6rem;
+    height: 5rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.loginButton:hover{
+    background-color: var(--text-color);
+    color: var(--background-color);
+}
+.signUpContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 0.2rem;
+}
+.signUp{
+    font-size: 1.8rem;
+    font-family: "Catamaran", sans-serif;
+    font-weight: 200;
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: center;
+    grid-column-start: 2;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.signUp:hover{
+    text-decoration: underline;
+    text-decoration-color:var(--text-color);
+}
+.loginOtherContainer{
+    display: grid;
+    margin-top: 4rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: fit-content;
+    max-height: fit-content;
+}
+.googleLogin{
+    display: grid;
+    grid-column-start: 2;
+    justify-self: center;
+
+}
+
+@media screen and (max-width: 970px) {
+    .loginMainContainer{
+        grid-template-columns: 1fr;
+        padding: 0 2rem;
+    }
+    .loginInput{
+        grid-column-start: 1;
+    }
+    .loginContainer{
+        grid-column-start: 1;
+    }
+    .loginInputContainer{
+        grid-template-columns: 1fr;
+    }
+    .emailContainer{
+        grid-template-columns: 1fr;
+    }
+    .passwordContainer{
+        grid-template-columns: 1fr;
+
+    }
+    .passwordSpan{
+        grid-column-start: 1;
+
+    }
+    .loginOtherContainer{
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+    .googleLoginContainer{
+        grid-column-start: 1;
+        justify-content: center;
+    }
+    .altBilgilerContainer{
+        max-height: fit-content;
+        height: fit-content;
+    }
+    .googleLogin{
+        grid-column-start: 1;
+        justify-self: center;
+    }
+}
+@media only screen and (min-width: 970px) and (max-width: 1400px) {
+    .loginMainContainer{
+        justify-self: center;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .altBilgiContainer{
+       grid-template-rows: 1fr 1fr 1fr;
+    }
+    .signUpContainer{
+        margin-top: 0.5rem;
+    }
+    .loginInput{
+        grid-column-start: 1;
+    }
+    .loginContainer{
+        grid-column-start: 2;
+    }
+    .loginInputContainer{
+        grid-template-columns: 1fr;
+    }
+    .emailContainer{
+        grid-template-columns: 1fr;
+    }
+    .passwordContainer{
+        grid-template-columns: 1fr;
+
+    }
+    .passwordSpan{
+        grid-column-start: 1;
+
+    }
+    .loginOtherContainer{
+        grid-template-columns: 1fr;
+        
+
+    }
+    .googleLoginContainer{
+        grid-column-start: 1;
+
+    }
+    .googleLogin{
+        grid-column-start: 1;
+        justify-self: center;
+    }
+}

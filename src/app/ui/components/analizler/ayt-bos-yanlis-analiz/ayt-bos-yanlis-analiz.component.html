@@ -1,0 +1,78 @@
+<div class="analizContainer">
+    <ngx-charts-bar-vertical
+    (window:resize)="onResize($event)"
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="aytYanlisBoslar"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="false"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [showGridLines]="false">
+    </ngx-charts-bar-vertical>
+    <div class="filtreContainer">
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+            <div class="selectTitleContainer">
+              <h5 class="selectTitle">Konu Türü</h5>
+            </div>
+            <select (change)="onKonuTurChange($event)">
+                <option *ngFor="let konuTur of konuTurs">
+                    {{konuTur}}
+                </option>
+            </select>
+          </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+          <div class="selectTitleContainer">
+            <h5 class="selectTitle">Deneme Sayısı</h5>
+          </div>
+          <select (change)="onTableSizeChange($event)">
+              <option *ngFor="let size of tableSizes">
+                  {{size}}
+              </option>
+          </select>
+        </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+            <div class="selectTitleContainer">
+              <h5 class="selectTitle">Konu Sayısı</h5>
+            </div>
+            <select (change)="onKonuSizeChange($event)">
+                <option *ngFor="let size of konuSizes">
+                    {{size}}
+                </option>
+            </select>
+        </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000">
+            <div class="selectTitleContainer">
+              <h5 class="selectTitle">Alan Türü</h5>
+            </div>
+            <select (change)="onAlanChange($event)">
+                <option *ngFor="let alanTur of alanTurs">
+                    {{alanTur}}
+                </option>
+            </select>
+          </div>
+        <div class="paginationSelect" data-aos="fade-up" data-aos-duration="1000" *ngIf="alanTur!='Dil'">
+          <div class="selectTitleContainer">
+            <h5 class="selectTitle">Ders</h5>
+          </div>
+          <select (change)="onDersChange($event)" *ngIf="alanTur==='Sayısal'">
+              <option *ngFor="let sayisalDers of sayisalDersler" [value]="sayisalDers.id">
+                  {{sayisalDers.dersAdi}}
+              </option>
+          </select>
+          <select (change)="onDersChange($event)" *ngIf="alanTur==='Eşit Ağırlık'">
+            <option *ngFor="let esitagirlikDers of esitagirlikDersler" [value]="esitagirlikDers.id">
+                {{esitagirlikDers.dersAdi}}
+            </option>
+        </select>
+        <select (change)="onDersChange($event)"*ngIf="alanTur==='Sözel'">
+            <option *ngFor="let sozelDers of sozelDersler" [value]="sozelDers.id">
+                {{sozelDers.dersAdi}}
+            </option>
+        </select>
+        </div>
+      </div>
+</div>

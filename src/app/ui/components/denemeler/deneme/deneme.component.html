@@ -1,0 +1,398 @@
+<div class="denemeContainer" *ngIf="!duzenleAc">
+    <div class="tytContainer" data-aos="fade-up" data-aos-duration="1000" >
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Türkçe</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <div class="bilgiText">Doğru</div>
+                        <h4 class="bilgiSayi">{{tytDeneme.turkceDogru}}</h4>
+                    </div>
+                    <div class="dersBilgi">
+                        <div class="bilgiText">Yanlış</div>
+                        <h4 class="bilgiSayi">{{tytDeneme.turkceYanlis}}</h4>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Matematik</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <div class="bilgiText">Doğru</div>
+                        <h4 class="bilgiSayi">{{tytDeneme.matematikDogru}}</h4>
+                    </div>
+                    <div class="dersBilgi">
+                        <div class="bilgiText">Yanlış</div>
+                        <h4 class="bilgiSayi">{{tytDeneme.matematikYanlis}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Fen</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <div class="bilgiText">Doğru</div>
+                        <h4 class="bilgiSayi">{{tytDeneme.fenDogru}}</h4>
+                    </div>
+                    <div class="dersBilgi">
+                        <div class="bilgiText">Yanlış</div>
+                        <h4 class="bilgiSayi">{{tytDeneme.fenYanlis}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Sosyal</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <div class="bilgiText">Doğru</div>
+                        <h4 class="bilgiSayi">{{tytDeneme.sosyalDogru}}</h4>
+                    </div>
+                    <div class="dersBilgi">
+                        <div class="bilgiText">Yanlış</div>
+                        <h4 class="bilgiSayi">{{tytDeneme.sosyalYanlis}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="editContainer">
+            <button class="editTytButton" (click)="duzenleFunc()">Düzenle</button>
+        </div>
+    
+    </div>
+    <div class="tytYanlisKonularContainer" data-aos="fade-down" data-aos-duration="1000">
+        <div class="tytYanlisKonularTitleContainer">
+            <h4 data-aos="fade-down" data-aos-duration="1000">Yanlış Konuları Gör
+                <i class="fa-solid fa-angle-down" *ngIf=!yanlisKonuAcTyt (click)="yanlisKonuAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuAcTyt (click)="yanlisKonuAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+            </h4>
+        </div>
+        <div class="tytYanlisKonularDersContainer" *ngIf="showTytYanlis" data-aos="fade-up" data-aos-duration="1000">
+            <div class="dersYanlisContainer">
+                <div class="dersYanlisTitleContainer">
+                    <h4 class="dersYanlisTitle">Türkçe
+                        <i class="fa-solid fa-angle-down" *ngIf=!yanlisKonuTytTurkce (click)="yanlisKonuTytTurkceAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                        <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuTytTurkce (click)="yanlisKonuTytTurkceAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                    </h4>
+                </div>
+                <div class="dersYanlisIsimlerContainer" *ngIf="yanlisKonularTytTurkceAc" data-aos="flip-up" data-aos-duration="1000">
+                    <div class="dersYanlisIsimAltContainer" *ngFor="let turkceYanlisKonuAdi of turkceYanlisKonu" >
+                        <h5 class="dersYanlisIsim">{{turkceYanlisKonuAdi.konuAdi}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="dersYanlisContainer">
+                <div class="dersYanlisTitleContainer">
+                    <h4 class="dersYanlisTitle">Matematik
+                        <i class="fa-solid fa-angle-down" *ngIf="!yanlisKonuTytMatematik" (click)="yanlisKonuTytMatematikAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                        <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuTytMatematik (click)="yanlisKonuTytMatematikAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                    </h4>
+                </div>
+                <div class="dersYanlisIsimlerContainer" *ngIf="yanlisKonularTytMatematikAc">
+                    <div class="dersYanlisIsimAltContainer" *ngFor="let matematikYanlisKonuAdi of matematikYanlisKonu" >
+                        <h5 class="dersYanlisIsim">{{matematikYanlisKonuAdi.konuAdi}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="dersYanlisContainer">
+                <div class="dersYanlisTitleContainer">
+                    <h4 class="dersYanlisTitle">Fen
+                        <i class="fa-solid fa-angle-down" *ngIf=!yanlisKonuTytFen (click)="yanlisKonuTytFenAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                        <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuTytFen (click)="yanlisKonuTytFenAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                    </h4>
+                </div>
+                <div class="dersYanlisIsimlerContainer"  *ngIf="yanlisKonularTytFenAc">
+                    <div class="dersYanlisIsimAltContainer" *ngFor="let fenYanlisKonuAdi of fenYanlisKonu">
+                        <h5 class="dersYanlisIsim">{{fenYanlisKonuAdi.konuAdi}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="dersYanlisContainer">
+                <div class="dersYanlisTitleContainer">
+                    <h4 class="dersYanlisTitle">Sosyal
+                        <i class="fa-solid fa-angle-down" *ngIf=!yanlisKonuTytSosyal (click)="yanlisKonuTytSosyalAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                        <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuTytSosyal (click)="yanlisKonuTytSosyalAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                    </h4>
+                </div>
+                <div class="dersYanlisIsimlerContainer"  *ngIf="yanlisKonularTytSosyalAc">
+                    <div class="dersYanlisIsimAltContainer" *ngFor="let sosyalYanlisKonuAdi of sosyalYanlisKonu">
+                        <h5 class="dersYanlisIsim">{{sosyalYanlisKonuAdi.konuAdi}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tytBosKonularContainer" data-aos="fade-down" data-aos-duration="1000">
+        <div class="tytYanlisKonularTitleContainer">
+            <h4 data-aos="fade-down" data-aos-duration="1000">Boş Konuları Gör
+                <i class="fa-solid fa-angle-down" *ngIf=!bosKonuAcTyt (click)="bosKonuAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                <i class="fa-solid fa-angle-up" *ngIf=bosKonuAcTyt (click)="bosKonuAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+            </h4>
+        </div>
+        <div class="tytBosKonularDersContainer" *ngIf="showTytBos" data-aos="fade-up" data-aos-duration="1000">
+            <div class="dersYanlisContainer">
+                <div class="dersYanlisTitleContainer">
+                    <h4 class="dersYanlisTitle">Türkçe
+                        <i class="fa-solid fa-angle-down" *ngIf=!bosKonuTytTurkce (click)="bosKonuTytTurkceAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                        <i class="fa-solid fa-angle-up" *ngIf=bosKonuTytTurkce (click)="bosKonuTytTurkceAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                    </h4>
+                </div>
+                <div class="dersYanlisIsimlerContainer" *ngIf="bosKonularTytTurkceAc" data-aos="flip-up" data-aos-duration="1000">
+                    <div class="dersYanlisIsimAltContainer" *ngFor="let turkceBosKonuAdi of turkceBosKonu" >
+                        <h5 class="dersYanlisIsim">{{turkceBosKonuAdi.konuAdi}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="dersYanlisContainer">
+                <div class="dersYanlisTitleContainer">
+                    <h4 class="dersYanlisTitle">Matematik
+                        <i class="fa-solid fa-angle-down" *ngIf="!bosKonuTytMatematik" (click)="bosKonuTytMatematikAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                        <i class="fa-solid fa-angle-up" *ngIf=bosKonuTytMatematik (click)="bosKonuTytMatematikAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                    </h4>
+                </div>
+                <div class="dersYanlisIsimlerContainer" *ngIf="bosKonularTytMatematikAc">
+                    <div class="dersYanlisIsimAltContainer" *ngFor="let matematikBosKonuAdi of matematikBosKonu" >
+                        <h5 class="dersYanlisIsim">{{matematikBosKonuAdi.konuAdi}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="dersYanlisContainer">
+                <div class="dersYanlisTitleContainer">
+                    <h4 class="dersYanlisTitle">Fen
+                        <i class="fa-solid fa-angle-down" *ngIf=!bosKonuTytFen (click)="bosKonuTytFenAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                        <i class="fa-solid fa-angle-up" *ngIf=bosKonuTytFen (click)="bosKonuTytFenAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                    </h4>
+                </div>
+                <div class="dersYanlisIsimlerContainer"  *ngIf="bosKonularTytFenAc">
+                    <div class="dersYanlisIsimAltContainer" *ngFor="let fenBosKonuAdi of fenBosKonu">
+                        <h5 class="dersYanlisIsim">{{fenBosKonuAdi.konuAdi}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="dersYanlisContainer">
+                <div class="dersYanlisTitleContainer">
+                    <h4 class="dersYanlisTitle">Sosyal
+                        <i class="fa-solid fa-angle-down" *ngIf=!bosKonuTytSosyal (click)="bosKonuTytSosyalAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                        <i class="fa-solid fa-angle-up" *ngIf=bosKonuTytSosyal (click)="bosKonuTytSosyalAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                    </h4>
+                </div>
+                <div class="dersYanlisIsimlerContainer"  *ngIf="bosKonularTytSosyalAc">
+                    <div class="dersYanlisIsimAltContainer" *ngFor="let sosyalBosKonuAdi of sosyalBosKonu">
+                        <h5 class="dersYanlisIsim">{{sosyalBosKonuAdi.konuAdi}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+</div>
+<div class="tytEkleContainer" *ngIf="duzenleAc">
+    <div class="tytNetlerContainer" >
+        <div class="dersNetContainer" data-aos="fade-down" data-aos-duration="1000">
+            <div class="dersTitle">
+                <h3>Türkçe</h3>
+            </div>
+            <div class="dersNetCon">
+                <div class="dersDogruCon">
+                    <input type="text" name="" id="" class="dogruYanlisInput" #txtTurkceDogru value="{{tytDeneme.turkceDogru}}">
+                </div>
+                <div class="dersYanlisCon">
+                    <input type="text" name="" id="" class="dogruYanlisInput" #txtTurkceYanlis value="{{tytDeneme.turkceYanlis}}">
+                </div>
+            </div>
+        </div>
+        <div class="dersNetContainer" data-aos="fade-up" data-aos-duration="1500">
+            <div class="dersTitle">
+                <h3>Matematik</h3>
+            </div>
+            <div class="dersNetCon">
+                <div class="dersDogruCon">
+                    <input type="text" name="" id="" class="dogruYanlisInput" #txtMatematikDogru value="{{tytDeneme.matematikDogru}}">
+                </div>
+                <div class="dersYanlisCon">
+                    <input type="text" name="" id="" class="dogruYanlisInput" #txtMatematikYanlis value="{{tytDeneme.matematikYanlis}}">
+                </div>
+            </div>
+        </div>
+        <div class="dersNetContainer" data-aos="fade-down" data-aos-duration="1500">
+            <div class="dersTitle">
+                <h3>Fen</h3>
+            </div>
+            <div class="dersNetCon">
+                <div class="dersDogruCon">
+                    <input type="text" name="" id="" class="dogruYanlisInput" #txtFenDogru value="{{tytDeneme.fenDogru}}">
+                </div>
+                <div class="dersYanlisCon">
+                    <input type="text" name="" id="" class="dogruYanlisInput" #txtFenYanlis value="{{tytDeneme.fenYanlis}}">
+                </div>
+            </div>
+        </div>
+        <div class="dersNetContainer" data-aos="fade-up" data-aos-duration="1000">
+            <div class="dersTitle">
+                <h3>Sosyal</h3>
+            </div>
+            <div class="dersNetCon">
+                <div class="dersDogruCon">
+                    <input type="text" name="" id="" class="dogruYanlisInput" #txtSosyalDogru value="{{tytDeneme.sosyalDogru}}">
+                </div>
+                <div class="dersYanlisCon">
+                    <input type="text" name="" id="" class="dogruYanlisInput" #txtSosyalYanlis value="{{tytDeneme.sosyalYanlis}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tytYanlisKonularContainer">
+        <div class="tytYanlisBaslikContainer">
+            <h4 data-aos="fade-down" data-aos-duration="1000">Yanlış Konu Ekle 
+                <i class="fa-solid fa-angle-down" *ngIf=!yanlisKonuAcTyt (click)="yanlisKonuAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuAcTyt (click)="yanlisKonuAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+            </h4>
+        </div>
+        <div class="tytYanlisKonuEkleContainer" *ngIf="showTytYanlis" data-aos="fade-up" data-aos-duration="1000">
+            <div class="derslerYanlisContainer">
+                <div class="dersYanlisContainer">
+                    <div class="dersYanlisTitleContainer">
+                        <h3>Türkçe
+                            <i class="fa-solid fa-angle-down" *ngIf=!yanlisKonuTytTurkce (click)="yanlisKonuTytTurkceAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                            <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuTytTurkce (click)="yanlisKonuTytTurkceAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                        </h3>
+                    </div>
+                    <div class="dersYanlisCheckBoxes" *ngIf="yanlisKonularTytTurkceAc">
+                        <div class="checkBoxContainer" *ngFor="let checkbox of tytTurkceKonular" data-aos="fade-right" data-aos-duration="1000" (click)="onChangeTytYanlisCheckBox(checkbox.id)">
+                            <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}" [checked]="isCheckedYanlis(checkbox.id)">
+                            <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.konuAdi}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dersYanlisContainer">
+                    <div class="dersYanlisTitleContainer">
+                        <h3>Matematik
+                            <i class="fa-solid fa-angle-down" *ngIf="!yanlisKonuTytMatematik" (click)="yanlisKonuTytMatematikAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                            <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuTytMatematik (click)="yanlisKonuTytMatematikAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                        </h3>
+                    </div>
+                    <div class="dersYanlisCheckBoxes" *ngIf="yanlisKonularTytMatematikAc">
+                        <div class="checkBoxContainer" *ngFor="let checkbox of tytMatematikKonular" data-aos="fade-right" data-aos-duration="1000" (click)="onChangeTytYanlisCheckBox(checkbox.id)">
+                            <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}" [checked]="isCheckedYanlis(checkbox.id)" >
+                            <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.konuAdi}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dersYanlisContainer">
+                    <div class="dersYanlisTitleContainer">
+                        <h3>Fen
+                            <i class="fa-solid fa-angle-down" *ngIf=!yanlisKonuTytFen (click)="yanlisKonuTytFenAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                            <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuTytFen (click)="yanlisKonuTytFenAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                        </h3>
+                    </div>
+                    <div class="dersYanlisCheckBoxes" *ngIf="yanlisKonularTytFenAc">
+                        <div class="checkBoxContainer" *ngFor="let checkbox of tytFenKonular" data-aos="fade-right" data-aos-duration="1000" (click)="onChangeTytYanlisCheckBox(checkbox.id)">
+                            <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}" [checked]="isCheckedYanlis(checkbox.id)" >
+                            <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.konuAdi}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dersYanlisContainer">
+                    <div class="dersYanlisTitleContainer">
+                        <h3>Sosyal
+                            <i class="fa-solid fa-angle-down" *ngIf=!yanlisKonuTytSosyal (click)="yanlisKonuTytSosyalAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                            <i class="fa-solid fa-angle-up" *ngIf=yanlisKonuTytSosyal (click)="yanlisKonuTytSosyalAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                        </h3>
+                    </div>
+                    <div class="dersYanlisCheckBoxes" *ngIf="yanlisKonularTytSosyalAc">
+                        <div class="checkBoxContainer" *ngFor="let checkbox of tytSosyalKonular" data-aos="fade-right" data-aos-duration="1000" (click)="onChangeTytYanlisCheckBox(checkbox.id)">
+                            <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}" [checked]="isCheckedYanlis(checkbox.id)">
+                            <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.konuAdi}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tytBosKonularContainer">
+
+        <div class="tytYanlisBaslikContainer">
+            <h4 data-aos="fade-down" data-aos-duration="1000">Boş Konu Ekle 
+                <i class="fa-solid fa-angle-down" *ngIf=!bosKonuAcTyt (click)="bosKonuAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                <i class="fa-solid fa-angle-up" *ngIf=bosKonuAcTyt (click)="bosKonuAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+            </h4>
+        </div>
+        <div class="AytYanlisKonuEkleContainer" *ngIf="showTytBos" data-aos="fade-up" data-aos-duration="1000">
+            <div class="derslerYanlisContainer">
+                <div class="dersYanlisContainer">
+                    <div class="dersYanlisTitleContainer">
+                        <h3>Türkçe
+                            <i class="fa-solid fa-angle-down" *ngIf=!bosKonuTytTurkce (click)="bosKonuTytTurkceAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                            <i class="fa-solid fa-angle-up" *ngIf=bosKonuTytTurkce (click)="bosKonuTytTurkceAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                        </h3>
+                    </div>
+                    <div class="dersYanlisCheckBoxes" *ngIf="bosKonularTytTurkceAc">
+                        <div class="checkBoxContainer" *ngFor="let checkbox of tytTurkceKonular" data-aos="fade-right" data-aos-duration="1000" (click)="onChangeTytBosCheckBox(checkbox.id)">
+                            <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}" [checked]="isCheckedBos(checkbox.id)">
+                            <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.konuAdi}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dersYanlisContainer">
+                    <div class="dersYanlisTitleContainer">
+                        <h3>Matematik
+                            <i class="fa-solid fa-angle-down" *ngIf=!bosKonuTytMatematik (click)="bosKonuTytMatematikAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                            <i class="fa-solid fa-angle-up" *ngIf=bosKonuTytMatematik (click)="bosKonuTytMatematikAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                        </h3>
+                    </div>
+                    <div class="dersYanlisCheckBoxes" *ngIf="bosKonularTytMatematikAc">
+                        <div class="checkBoxContainer" *ngFor="let checkbox of tytMatematikKonular" data-aos="fade-right" data-aos-duration="1000" (click)="onChangeTytBosCheckBox(checkbox.id)">
+                            <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}" [checked]="isCheckedBos(checkbox.id)">
+                            <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.konuAdi}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dersYanlisContainer">
+                    <div class="dersYanlisTitleContainer">
+                        <h3>Fen
+                            <i class="fa-solid fa-angle-down" *ngIf=!bosKonuTytFen (click)="bosKonuTytFenAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                            <i class="fa-solid fa-angle-up" *ngIf=bosKonuTytFen (click)="bosKonuTytFenAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                        </h3>
+                    </div>
+                    <div class="dersYanlisCheckBoxes" *ngIf="bosKonularTytFenAc">
+                        <div class="checkBoxContainer" *ngFor="let checkbox of tytFenKonular" data-aos="fade-right" data-aos-duration="1000" >
+                            <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}" [checked]="isCheckedBos(checkbox.id)" (click)="onChangeTytBosCheckBox(checkbox.id)">
+                            <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.konuAdi}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dersYanlisContainer">
+                    <div class="dersYanlisTitleContainer">
+                        <h3>Sosyal
+                            <i class="fa-solid fa-angle-down" *ngIf=!bosKonuTytSosyal (click)="bosKonuTytSosyalAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                            <i class="fa-solid fa-angle-up" *ngIf=bosKonuTytSosyal (click)="bosKonuTytSosyalAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+                        </h3>
+                    </div>
+                    <div class="dersYanlisCheckBoxes" *ngIf="bosKonularTytSosyalAc">
+                        <div class="checkBoxContainer" *ngFor="let checkbox of tytSosyalKonular" data-aos="fade-right" data-aos-duration="1000" (click)="onChangeTytBosCheckBox(checkbox.id)">
+                            <input type="checkbox" class="konuCheckBox" id="{{checkbox.id}}" >
+                            <label for="{{checkbox.id}}" class="konuCheckBoxTitle">{{checkbox.konuAdi}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ekleButtonContainer">
+        <button class="ekleButton"  data-aos="fade-left" data-aos-duration="1000" (click)="editTyt(txtTurkceDogru.value,txtTurkceYanlis.value,txtMatematikDogru.value,txtMatematikYanlis.value,txtFenDogru.value,txtFenYanlis.value,txtSosyalDogru.value,txtSosyalYanlis.value)" >Güncelle</button>
+    </div>
+</div>

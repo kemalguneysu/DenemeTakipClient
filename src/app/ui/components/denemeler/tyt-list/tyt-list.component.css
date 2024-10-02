@@ -1,0 +1,190 @@
+.tytListContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: var(--secondary-color);
+}
+.notFoundText{
+    font-size: 2rem;
+    font-family: "Catamaran", sans-serif;
+    color: var(--text-color);
+    text-align: center;
+    text-align: center;
+    padding: 2.4rem;
+    font-weight: 400;
+}
+.tytContainer{
+    display: grid;
+    grid-template-columns: repeat(5,2fr) 1fr;
+    height: fit-content;
+    max-height: fit-content;
+    border: .1rem solid var(--third-color);
+    border-radius: 0.6rem;
+    margin: 1rem 3rem;
+    padding: .5rem;
+}
+.ders{
+    display: grid;
+    width: 100%;
+    max-height: fit-content;
+    height: fit-content;
+    max-height: fit-content;
+}
+.dersIslemler{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    margin: 0 1rem;
+}
+.deleteButton{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0 .2rem;
+    font-size: 2rem;
+    word-break: break-word;
+    color: #F0ECE5;
+    cursor: pointer;
+}
+.detayButtonContainer{
+    display: grid;
+    align-items: center;
+}
+
+.detayButton{
+    width: 15rem;
+    height: 3rem;
+    font-size: 1.8rem;
+    border-radius: 1rem;
+    color: var(--text-color);
+    font-family: "Source Sans 3", sans-serif;
+    background-color: var(--background-color);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    padding: .3rem 0;
+}
+.detayButton:hover{
+    background-color: var(--text-color);
+    border: .1rem solid var(--third-color);
+    color: var(--background-color);
+}
+
+.dersAltContainer{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    height: fit-content;
+    max-height: fit-content;
+}
+.dersAdiContainer{
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    max-height: fit-content;
+    
+}
+.dersAdi{
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    font-family: "Catamaran", sans-serif;
+    text-align: center;
+}
+.dersBilgilerContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    height: fit-content;
+    
+}
+.dersBilgi{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    height: fit-content;
+}
+.bilgiSayi{
+    font-size: 2.6rem;
+    font-weight: 400;
+    color: var(--text-color);
+    font-family: "Source Sans 3", sans-serif;
+    justify-self: center;
+
+}
+.paginationContainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 1rem;
+}
+.paginationDiv{
+    display: flex;
+    justify-content: center;
+}
+.paginationSelect{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    max-height: fit-content;
+    height: fit-content;
+}
+.paginationSelect select{
+    background-color: var(--background-color);
+    border: .1rem solid var(--third-color);
+    color: var(--text-color);
+    grid-column-start: 2;
+    font-size: 2rem;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    border-radius: 0.6rem;
+}
+.paginationSelect select option{
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 1.6rem;
+    background-color: var(--secondary-color);
+    border: .1rem solid var(--third-color);
+}
+
+.paginationControl{
+    font-size: 3rem;
+    color: var(--text-color);
+}
+.paginationControl /deep/ ul li span{
+    font-size: 2.2rem;
+    color: var(--text-color);
+
+}
+.paginationControl /deep/ ul li a{
+    font-size: 2.2rem;
+    color: var(--text-color);
+
+}
+.paginationControl /deep/ ul li{
+    font-size: 2.2rem;
+    color: var(--text-color);
+}
+.paginationControl  /deep/ li{
+    border-radius: 2rem;
+    width: fit-content;
+    cursor: pointer;
+
+}
+.paginationControl  /deep/ li a:hover{
+    border-radius: 2rem;
+    width: fit-content;
+    cursor: pointer;
+    background-color: var(--background-color);
+
+}
+.paginationControl /deep/ ul li.current{
+    background-color: var(--line-color);
+    border: .1rem solid var(--third-color);
+    border-radius: 2rem;
+    cursor: pointer;
+}
+@media screen and (max-width: 970px) {
+    .tytContainer{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,2fr);
+    }
+}

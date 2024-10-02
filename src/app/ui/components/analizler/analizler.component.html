@@ -1,0 +1,27 @@
+<div class="denemeAnalizMainContainer">
+    <div class="tytAnalizlerContainer" data-aos="flip-up" data-aos-duration="1000">
+        <div class="dersYanlisTitleContainer" data-aos="flip-up" data-aos-duration="1000">
+            <h3>TYT Analizleri
+                <i class="fa-solid fa-angle-down" *ngIf=!showTytAnaliz (click)="tytAnalizAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                <i class="fa-solid fa-angle-up" *ngIf=showTytAnaliz (click)="tytAnalizAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+            </h3>
+        </div>
+        <div class="tytAnalizContainer" data-aos="flip-up" data-aos-duration="1000">
+            <app-tyt-analiz class="analiz" *ngIf="showTytAnaliz" ></app-tyt-analiz>
+            <app-tyt-bos-yanlis-analiz *ngIf="showTytAnaliz"></app-tyt-bos-yanlis-analiz>
+        </div>
+    </div>
+    <div class="tytAnalizlerContainer">
+        <div class="dersYanlisTitleContainer" data-aos="flip-up" data-aos-duration="1000">
+            <h3>AYT Analizleri
+                <i class="fa-solid fa-angle-down" *ngIf=!showAytAnaliz (click)="aytAnalizAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                <i class="fa-solid fa-angle-up" *ngIf=showAytAnaliz (click)="aytAnalizAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+            </h3>
+        </div>
+        <div class="tytAnalizContainer" data-aos="flip-up" data-aos-duration="1000">
+            <app-ayt-analiz class="analiz" *ngIf="showAytAnaliz"></app-ayt-analiz>
+            <app-ayt-bos-yanlis-analiz *ngIf="showAytAnaliz"></app-ayt-bos-yanlis-analiz>
+        </div>
+    </div>
+
+</div>

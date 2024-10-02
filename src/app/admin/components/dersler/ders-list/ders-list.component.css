@@ -1,0 +1,266 @@
+.dersListContainer{
+    background-color: var(--secondary-color);
+    display: grid;
+    width: 100%;
+}
+.toggleAytTyt2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3,1fr);
+}
+.notFoundContainer{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: var(--secondary-color);
+    margin: 1rem 0rem;
+}
+.notFoundText{
+    display: grid;
+    grid-column-start: 2;
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 400;
+    padding: 1rem;
+    font-family: "Quicksand", sans-serif;
+    font-size: 2.4rem;
+}
+.toggleDeneme2{
+    display: grid;
+    justify-content: center;
+}
+.toggleDeneme2 h5{
+    font-size: 3rem;
+    color: var(--text-color);
+    font-family: "Catamaran", sans-serif;
+    padding: 0 1rem;
+}
+.container2 {
+	position: relative;
+	height: 6.4rem;
+	width: 6.4rem;
+	border-radius: .1rem;
+    justify-self: center;
+}
+.toggleCheckbox2{
+	appearance: none;
+	-webkit-appearance: none;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	height: 2rem;
+	width: 4rem;
+	background-color: var(--text-color);
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: 0.5s;
+}
+.searchContainer{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 100%;
+}
+.search{
+    height: 3rem;
+    width: 100%;
+    grid-column-start: 2;
+    color: var(--text-color);
+    border-radius: 2rem;
+    margin: 1rem 0rem;
+    border:.1rem solid var(--third-color);
+    background-color: var(--background-color);
+    text-align: center;
+    font-size: 2.2rem;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+}
+.search::placeholder{
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--text-color);
+    font-weight: 100;
+    font-family: "Catamaran", sans-serif;
+}
+
+label[for="cup2"] {
+	position: absolute;
+	background-color: var(--secondary-color);
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: .6rem;
+	height: 2rem;
+	width: 2rem;
+	border: .1rem solid #e7e7e7;
+	border-radius: 50%;
+	box-shadow: inset -6px 6px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: 0.5s;
+    
+}
+label[for="cup2"]:before {
+	content: "";
+	position: absolute;
+	height: .1rem;
+	width: .3rem;
+	background-image: linear-gradient(to left, #bebebe 30%, #cccccc 30%);
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: -.38rem;
+    
+}
+input[type="checkbox"]:checked {
+	background-color: var(--background-color);
+    
+}
+input[type="checkbox"]:checked  + label[for="cup2"] {
+	transform: translateX(2rem) rotate(180deg);
+	background-color: var(--text-color);
+	box-shadow: inset .06rem -.06rem rgba(0, 0, 0, 0.2);
+}
+.konuAdminContainer{
+	height: 50rem;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	height: fit-content;
+}
+.konuContainer{
+    display: grid;
+	height: fit-content;
+    max-height: fit-content;
+	grid-template-columns: 1fr 1fr;
+	margin: 2rem 0rem;
+}
+.konuAdiContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+.dersAdiContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.konuAdiContainer h4{
+	font-size: 2rem;
+	color: var(--text-color);
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 400;
+}
+.dersAdiContainer h4{
+	font-size: 2rem;
+	color: var(--text-color);
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 300;
+}
+.konuIslemler{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+	align-items: center;
+}
+.detayButtonContainer{
+    display: grid;
+    align-items: center;
+}
+
+.detayButton{
+    width: 15rem;
+    height: 3rem;
+    font-size: 1.8rem;
+    border-radius: 1rem;
+    border: .2rem solid var(--third-color);
+    color: var(--text-color);
+    font-family: "Source Sans 3", sans-serif;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+.detayButton:hover{
+    background-color: var(--text-color);
+    border: .1rem solid var(--third-color);
+    color: var(--background-color);
+}
+.paginationContainer{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 1rem;
+}
+.paginationDiv{
+    display: flex;
+    justify-content: center;
+}
+.paginationSelect{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    max-height: fit-content;
+    height: fit-content;
+}
+.paginationSelect select{
+    background-color: var(--background-color);
+    border: .1rem solid var(--third-color);
+    color: var(--text-color);
+    grid-column-start: 2;
+    font-size: 2rem;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    border-radius: 0.6rem;
+}
+.paginationSelect select option{
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 1.6rem;
+    background-color: var(--secondary-color);
+    border: .1rem solid var(--third-color);
+}
+
+.paginationControl{
+    font-size: 3rem;
+    color: var(--text-color);
+}
+.paginationControl /deep/ ul li span{
+    font-size: 2.2rem;
+    color: var(--text-color);
+
+}
+.paginationControl /deep/ ul li a{
+    font-size: 2.2rem;
+    color: var(--text-color);
+
+}
+.paginationControl /deep/ ul li{
+    font-size: 2.2rem;
+    color: var(--text-color);
+}
+.paginationControl  /deep/ li{
+    border-radius: 2rem;
+    width: fit-content;
+    cursor: pointer;
+
+}
+.paginationControl  /deep/ li a:hover{
+    border-radius: 2rem;
+    width: fit-content;
+    cursor: pointer;
+    background-color: var(--background-color);
+
+}
+.paginationControl /deep/ ul li.current{
+    background-color: var(--line-color);
+    border: .1rem solid var(--third-color);
+    border-radius: 2rem;
+    cursor: pointer;
+}

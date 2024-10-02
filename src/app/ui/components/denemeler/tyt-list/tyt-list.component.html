@@ -1,0 +1,93 @@
+<div class="tytListContainer" >
+    <div class="tytContainer" *ngFor="let tyt of tytDenemeler | paginate:{
+        itemsPerPage:tableSizeTytList,
+        currentPage:pageTytList,
+        totalItems:countTytList
+    };let in=index" data-aos="fade-up" data-aos-duration="1000">
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Türkçe Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{tyt.turkceNet}}</h4>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Matematik Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{tyt.matematikNet}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Fen Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{tyt.fenNet}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Sosyal Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{tyt.sosyalNet}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Toplam Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{tyt.toplamNet}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dersIslemler">
+            <div class="detayButtonContainer">
+                <a class="detayButton"  data-aos="fade-left" data-aos-duration="1000" [routerLink]="['/denemeler', 'tyt',tyt.id]">Detayları Gör</a>
+            </div>
+            <div appDelete [id]="tyt.id" (callback)="getTytDenemes()" controller="tyts" class="deleteButton" data-aos="fade-left" data-aos-duration="1200" hubUrl="tyt-hub"></div>
+        </div>
+    </div>
+    <div class="paginationContainer"  *ngIf="tytDenemeler.length>0">
+        <div class="paginationDiv">
+            <pagination-controls 
+                previousLabel="Önceki"
+                nextLabel="Sonraki"
+                (pageChange)="onTableDataChangeTytList($event)" class="paginationControl"> 
+            </pagination-controls>
+        </div>
+        <div class="paginationSelect">
+            <select (change)="onTableSizeChangeTytList($event)">
+                <option *ngFor="let size of tableSizesTytList">
+                    {{size}}
+                </option>
+            </select>
+        </div>
+    </div>    
+    <h4 class="notFoundText" *ngIf="tytDenemeler.length==0">Tyt denemeniz bulunmamaktadır.</h4>
+
+    
+</div>

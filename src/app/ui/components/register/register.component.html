@@ -1,0 +1,57 @@
+<div class="loginMainContainer">
+    <div class="loginContainer">
+        <div class="loginTextContainer">
+            <h3 data-aos="flip-up" data-aos-duration="1000">Üye Ol</h3>
+        </div>
+        <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
+        <div class="loginInputContainer">
+            <div class="emailContainer">
+                <input type="text" id="email" #txtUserName class="loginInput" placeholder="Email" data-aos="flip-up" data-aos-duration="1000" formControlName="email" [ngClass]="{'is-invalid':submitted && component['email'].errors}">
+                <small class="smallTags" *ngIf="submitted && component['email'].errors?.['required']">Lütfen email kısmını doldurunuz.</small>
+                <small class="smallTags" *ngIf="submitted && component['email'].errors?.['email']">Email adresi doğru girilmelidir.</small>
+            </div>
+            <div class="emailContainer">
+                <input type="text" id="username" #txtEmail class="loginInput" placeholder="Kullanıcı Adı" data-aos="flip-up" data-aos-duration="1000" formControlName="username" [ngClass]="{'is-invalid':submitted && component['username'].errors}">
+                <small class="smallTags" *ngIf="submitted && component['username'].errors?.['required']">Lütfen kullanıcı adı kısmını doldurunuz.</small>
+                <small class="smallTags" *ngIf="submitted && component['username'].errors?.['minlength']">Kullanıcı adı en az 5 karakter olmalıdır.</small>
+                <small class="smallTags" *ngIf="submitted && component['username'].errors?.['maxlength']">Kullanıcı adı en fazla 35 karakter olmalıdır.</small>
+            </div>
+            <div class="passwordContainer">
+                <div class="passwordSpan">
+                    <input type="password" id="sifre" class="loginInput" id="passwordInput" data-aos="flip-up" data-aos-duration="1000" placeholder="Şifre" #txtPassword formControlName="password" [ngClass]="{'is-invalid':submitted && component['password'].errors}">
+                    <i class="fa-solid fa-eye gozIcon" (click)="gozAcKapa()" *ngIf="!sifreGor" data-aos="flip-up" data-aos-duration="1000"></i>
+                    <i class="fa-solid fa-eye-slash gozIcon" (click)="gozAcKapa()" *ngIf="sifreGor" data-aos="flip-up" data-aos-duration="1000"></i>
+                    <small class="smallTags" *ngIf="submitted && component['password'].errors?.['required']">Lütfen şifre kısmını doldurunuz.</small>
+                    <small class="smallTags" *ngIf="submitted && component['password'].errors?.['minlength']">Şifre en az 6 karakter olmalıdır.</small>
+
+                </div>
+                <div class="passwordSpan">
+                    <input type="password" id="sifreTekrar" class="loginInput" id="passwordInput2" data-aos="flip-up" data-aos-duration="1000" placeholder="Şifre Tekrar" #txtPassword2 formControlName="passwordConfirm" [ngClass]="{'is-invalid':submitted && component['passwordConfirm'].errors}">
+                    <i class="fa-solid fa-eye gozIcon" (click)="gozAcKapa2()" *ngIf="!sifreGor2" data-aos="flip-up" data-aos-duration="1000"></i>
+                    <i class="fa-solid fa-eye-slash gozIcon" (click)="gozAcKapa2()" *ngIf="sifreGor2" data-aos="flip-up" data-aos-duration="1000"></i>
+                    <small class="smallTags" *ngIf="submitted && component['passwordConfirm'].errors?.['required']">Lütfen şifre tekrar kısmını doldurunuz.</small>
+                    <small class="smallTags" *ngIf="submitted && frm.hasError('notSame')">Şifre ve şifre tekrar kısımları uyuşmuyor.</small>
+                </div>
+            </div>
+        </div>
+        <div class="signUpContainer">
+            <a routerLink="/giris-yap" class="signUp"  data-aos="flip-up" data-aos-duration="1000">Hesabınız var mı?</a>
+        </div>
+        <div class="altBilgilerContainer">
+            <div class="altBilgiContainer">
+                <div class="loginButtonContainer" data-aos="flip-up" data-aos-duration="1000">
+                    <button class="loginButton" type="submit">Üye Ol</button>
+                </div>
+            </div>
+            <asl-google-signin-button class="googleLogin"
+                    type="standard"
+                    shape="pill"
+                    text="signup_with"
+                    theme="outline"
+                    size="large"
+        ></asl-google-signin-button>
+        </div>
+        </form>
+        
+    </div>
+</div>

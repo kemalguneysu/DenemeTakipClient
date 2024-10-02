@@ -1,0 +1,43 @@
+<div class="kullaniciMainDiv">
+    <div class="searchContainer">
+        <input type="search" class="search" #txtNameOrEmail (input)="changeSearchInput(txtNameOrEmail.value)" placeholder="Arama Yap">
+    </div>
+    <div class="konuAdminContainer">
+        <h4 class="notFoundText" *ngIf="users.length==0">Belirtilen kullanıcı adı veya email ile ilgili bir hesap bulunamadı.</h4>
+        <div class="konuContainer" *ngFor="let user of users | paginate:{
+            itemsPerPage:tableSize2,
+            currentPage:page2,
+            totalItems:count2
+        };let i=index" data-aos="fade-up" data-aos-duration="1000">
+            <div class="dersAdiContainer">
+                <h4>{{user.userName}}</h4>
+            </div>
+            <div class="dersAdiContainer">
+                <h4>{{user.email}}</h4>
+            </div>
+            <div class="konuIslemler">
+                <div appDelete2 [id]="user.id" (callback)="getUsers()" controller="user" class="deleteButton" data-aos="fade-left" data-aos-duration="1200"></div>
+                <div class="detayButtonContainer">
+                    <a class="detayButton" [routerLink]="['/admin/kullanicilar',user.id]">Detayları Gör</a>
+                </div>
+            </div>
+        </div>
+        <div class="paginationContainer" *ngIf="users.length>0">
+            <div class="paginationDiv">
+                <pagination-controls 
+                    previousLabel="Önceki"
+                    nextLabel="Sonraki"
+                    (pageChange)="onTableDataChange($event)" class="paginationControl"> 
+                </pagination-controls>
+            </div>
+            <div class="paginationSelect">
+                <select (change)="onTableSizeChange($event)">
+                    <option *ngFor="let size of tableSizes2">
+                        {{size}}
+                    </option>
+                </select>
+            </div>
+        </div>    
+    </div>
+    
+</div>

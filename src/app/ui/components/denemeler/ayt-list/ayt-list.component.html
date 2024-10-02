@@ -1,0 +1,79 @@
+<div class="aytListContainer" >
+    <div class="aytContainer" *ngFor="let ayt of aytDenemeler | paginate:{
+        itemsPerPage:tableSizeAytList,
+        currentPage:pageAytList,
+        totalItems:countAytList
+    };let i=index" data-aos="fade-up" data-aos-duration="1000">
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Sayısal Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{ayt.sayisalNet}}</h4>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Eşit Ağırlık Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{ayt.esitAgirlikNet}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Sözel Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{ayt.sozelNet}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ders">
+            <div class="dersAltContainer">
+                <div class="dersAdiContainer">
+                    <h3 class="dersAdi">Dil Net</h3>
+                </div>
+                <div class="dersBilgilerContainer">
+                    <div class="dersBilgi">
+                        <h4 class="bilgiSayi">{{ayt.dilNet}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dersIslemler">
+            <div class="detayButtonContainer">
+                <a class="detayButton"  data-aos="fade-left" data-aos-duration="1000" [routerLink]="['/denemeler', 'ayt',ayt.id]">Detayları Gör</a>
+            </div>
+            <div appDelete [id]="ayt.id" (callback)="getAytDenemes()" controller="ayts" class="deleteButton" data-aos="fade-left" data-aos-duration="1200" hubUrl="ayt-hub"></div>
+        </div>
+    </div>
+    <div class="paginationContainer" *ngIf="aytDenemeler.length>0">
+        <div class="paginationDiv">
+            <pagination-controls 
+                previousLabel="Önceki"
+                nextLabel="Sonraki"
+                (pageChange)="onTableDataChangeAytList($event)" class="paginationControl"> 
+            </pagination-controls>
+        </div>
+        <div class="paginationSelect">
+            <select (change)="onTableSizeChangeAytList($event)">
+                <option *ngFor="let size of tableSizesAytList">
+                    {{size}}
+                </option>
+            </select>
+        </div>
+    </div>    
+    <h4 class="notFoundText" *ngIf="aytDenemeler.length==0">Ayt denemeniz bulunmamaktadır.</h4>
+</div>

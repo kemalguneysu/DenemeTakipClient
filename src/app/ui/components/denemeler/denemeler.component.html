@@ -1,0 +1,40 @@
+<div class="denemeEkleContainer">
+    <div class="toggleAytTyt">
+        <div class="toggleTyt toggleDeneme">
+            <h5>TYT</h5>
+        </div>
+            <div class="container" >
+                <input type="checkbox" id="cup" (click)="isAytOrTyt()" class="toggleCheckbox">
+                <label for="cup"></label>
+            </div>
+        <div class="toggleAyt toggleDeneme">
+            <h5>AYT</h5>
+        </div>
+    </div>
+    <div class="denemeEkle">
+       <app-tyt-create *ngIf="isAytOrTytToggle"></app-tyt-create>
+       <app-ayt-create *ngIf="!isAytOrTytToggle"></app-ayt-create>
+    </div>
+</div>
+<div class="denemeListContainer">
+    <div class="tytListContainer" data-aos="flip-up" data-aos-duration="1000">
+        <div class="tytYanlisBaslikContainer">
+            <h4 data-aos="fade-down" data-aos="flip-up" data-aos-duration="1000">TYT Denemeleri Gör
+                <i class="fa-solid fa-angle-down" *ngIf=!showTytDenemes (click)="showTytBosAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                <i class="fa-solid fa-angle-up" *ngIf=showTytDenemes (click)="showTytBosAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+            </h4>
+        </div>
+        <app-tyt-list *ngIf="showTytDenemes"></app-tyt-list>
+    </div>
+</div>
+<div class="denemeListContainer">
+    <div class="tytListContainer" data-aos="flip-up" data-aos-duration="1000">  
+        <div class="tytYanlisBaslikContainer">
+            <h4 data-aos="fade-down" data-aos="flip-up" data-aos-duration="1000">AYT Denemeleri Gör
+                <i class="fa-solid fa-angle-down" *ngIf=!showAytDenemes (click)="showAytBosAc()" data-aos="flip-up" data-aos-duration="1000"></i> 
+                <i class="fa-solid fa-angle-up" *ngIf=showAytDenemes (click)="showAytBosAc()" data-aos="flip-up" data-aos-duration="1000"></i>
+            </h4>
+        </div>
+        <app-ayt-list *ngIf="showAytDenemes"></app-ayt-list>
+    </div>
+</div>

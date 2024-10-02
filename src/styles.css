@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Catamaran:wght@100..900&family=Dancing+Script:wght@400..700&family=Quicksand:wght@300..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Tilt+Neon&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+body{
+    overflow-x: hidden;
+
+}
+:root{
+    --background-color:#F6F6F6;
+    --text-color:#161616;
+    --line-color:#309db9;
+    --secondary-color:#d0d0d0;
+    --third-color:#141414;
+    --opacity:0.3;
+}
+.dark-theme{
+    --background-color:#141414;
+    --text-color:#ffffff;
+    --line-color:#309db9;
+    --secondary-color:#282828;
+    --third-color:#d0d0d0;
+}
+
+body::before{
+    content: "";
+    background-image: url(./assets/background3.png);
+    margin-top: 7rem;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.8;
+    height: 100vh;
+    z-index: -2;
+}
+body::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.sweetPopup{
+    width: 70rem !important;
+    height: 30rem !important;
+}
+.sweetTitle {
+    font-size: 3.6rem !important;
+    font-family: "Quicksand", sans-serif !important;
+    font-weight: 400 !important;
+
+}
+.sweetYesButton{
+    font-size: 1.8rem !important;
+    font-family: "Quicksand", sans-serif !important;
+    font-weight: 200 !important;
+    height: 5rem;
+
+}
+.sweetCancelButton{
+    font-size: 1.8rem !important;
+    font-family: "Quicksand", sans-serif !important;
+    font-weight: 200 !important;
+    height: 5rem;
+
+}
